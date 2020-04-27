@@ -5,7 +5,7 @@
   git init
 2.把工程加到本地仓库暂存区里
   git add .
-3.把本地仓库和本地仓库连接起来
+3.把本地仓库和远程仓库连接起来
   git remote add origin +URL
 4.把本地暂存区里的提交到本地库里
   git commit -m"（字符串就写写吧）"
