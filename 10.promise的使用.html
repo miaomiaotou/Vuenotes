@@ -14,20 +14,30 @@
 //      },1000) 
 
 // 参数本身要求是个函数，这个函数本来包括两个参数，一个resolve,一个reject,也就是 函数（resolve,reject），
-// reject,resolve本来又是函数,这样就可以疯狂套娃了(md里那种)
+// reject,resolve本来又是函数,这样就可以疯狂套娃了(md里那种),把在一个娃放进resolve函数里
 new Promise((resolve,reject) =>{
+    // 第一次网络请求的代码
     setTimeout(() => {
     resolve()
      },1000) 
 }).then(() =>{
+    // 第一次拿到结果的处理代码
     console.log('miao');
     console.log('miao');
     console.log('miao');
-    // 在调用了settimeout的时候就跳转到了then,then本来就是一个函数、
+    // 在调用了resolve的时候就跳转到了then,then本来就是一个函数、可以写进去settimeout里边的网络请求(函数)
 
     return new Promise((resolve,reject) => {
-        // 再调用data1(url2)',function(data2)
-    }).then
+        // 第二次网络请求的代码
+        // 再调用data1(url2)',function(data2)=>{resolve()}=>then=>{}
+        
+    }).then(()=>{
+        // 第二次处理的代码
+        console.log('wa');
+        console.log('wa');
+        console.log('wa');
+
+    })
     
     
 
